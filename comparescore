@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+double getGrade(string);
+void findHighest(double,double,double,double);
+//start of main function
+int main()
+{
+	//define the grade score variable
+	double grade3rd = 0;
+	double grade4th = 0;
+	double grade5th = 0;
+	double grade6th = 0;
+
+	//start to enter the score for each grade
+	grade3rd = getGrade("Thrid Grade");
+	grade4th = getGrade("Fourth Grade");
+	grade5th = getGrade("Fifth Grade");
+	grade6th = getGrade("Sixth Grade");
+	
+	//Find the highest Grade
+	findHighest(grade3rd,grade4th,grade5th,grade6th);
+	system("pause");
+	return 0;
+}
+//End of the main function
+
+
+//start of function getGrade()
+double getGrade(string name)
+{
+    double score = 0;
+    cout <<"Enter the total score of " << name << endl;
+    cin >> score;
+    while (score < 0)
+    {    
+        cout <<"Please re enter the valid score of " << name << endl;
+        cin >> score;
+    }
+        return score;
+}
+//End of getGrade function
+
+
+//start of function findHighest
+void findHighest (double score1, double score2, double score3, double score4)
+{
+   if(score1 > score2 && score1 > score3 && score1 > score4)
+      cout <<"Fourth grade has the highest score and the score is: " << score2 << endl; 
+   if(score2 > score1 && score2 > score3 && score2 > score4)
+      cout <<"Fourth grade has the highest score and the score is: " << score2 << endl;
+   if(score3 > score1 && score3 > score2 && score3 > score4)
+      cout <<"Fifth grade has the highest score and the score is: " << score3 << endl; 
+   if(score4 > score1 && score4 > score2 && score4 > score3)
+      cout <<"Sixth grade has the highest score and the score is: " << score4 << endl;
+}
+//end of function findHighest
