@@ -11,6 +11,7 @@ int incorrect(string);
 int null(string);
 void GameInstruction();
 int GameMenu(int &);
+void ReportScore(int &);
 
 int main()
 {
@@ -98,16 +99,18 @@ int main()
 			cout << "You only can choose from 1 to 9." << endl;
 			break;
 		}
-		//Display the total score after each choice
+		//Adding the score for each answer to totalscore
 		totalscore = totalscore + score;
-		cout << "Your score for today is: " << totalscore << endl;
 		
 		//This is the condition to replay the game without restart it
 		cout << "Press Y to play again: ";
 		cin >> replay;
 		cout << " \n";
 	} while (replay == 'Y' || replay == 'y');
-
+        
+        //Report the total score of today
+        ReportScore(totalscore);
+        
 	system("PAUSE");
 	exit (0);
 }
@@ -196,6 +199,7 @@ void GameInstruction()
 	cout << "Note: Please ignore all special characters when identify the Palindrome word. \n";
 	cout << " \n";
 	cout << " \n";
+	system ("PAUSE");
 }
 
 //Function of the Game Menu
@@ -214,4 +218,18 @@ int GameMenu(int &choice)
 		cout << "Enter your choice from 1 to 9: ";
 		cin >> choice;
 		return choice;
+}
+
+void ReportScore(int &totalscore)
+{
+    string lastname;
+    string firstname;
+    cout << "Enter your first name: ";
+    cin >> firstname;
+    cout <<endl;
+    cout << "Enter your last name: ";
+    cin >>lastname;
+    cout <<endl;
+    cout << "Congratulation " << firstname << " " << lastname <<endl;
+    cout << "Your total score for today is: " << totalscore <<endl;
 }
