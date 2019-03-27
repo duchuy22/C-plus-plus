@@ -1,0 +1,151 @@
+//Matthew Beard
+//Program 3
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+//Functions
+void showWelcome();
+void showMenu();
+int showSpring();
+int showSummer();
+int showFall();
+int showWinter();
+
+
+
+int main()
+{
+    int choice;     //menu choice
+    
+    
+    //constants for menu choices
+    const int SPRING_CHOICE = 1,
+              SUMMER_CHOICE = 2,
+              FALL_CHOICE = 3,
+              WINTER_CHOICE = 4,
+              QUIT_CHOICE = 5;
+    
+    cout << fixed << showpoint << setprecision(1); //sets to 1 decimal place
+    
+    do
+    {
+         showWelcome(); // Show Welcome screen
+         showMenu(); // Display Menu
+         cin >> choice;
+         
+         //Validate menu selection
+         while (choice < SPRING_CHOICE || choice > QUIT_CHOICE)
+         {
+               cout << "Please enter a valid menu choice: ";
+               cin >> choice;
+         }
+         
+         //If user does not want to quit, proceed.
+         if (choice != QUIT_CHOICE)
+         {
+                    switch (choice)
+                    {
+                           case SPRING_CHOICE:
+                                int showSpring();
+                                break;
+                           
+                           case SUMMER_CHOICE:
+                                int showSummer();
+                                break;
+                                
+                           case FALL_CHOICE:
+                                int showFall();
+                                break;
+                           
+                           case WINTER_CHOICE:
+                                int showWinter();
+                                break;
+                    }
+         }
+         } while (choice != QUIT_CHOICE);
+         return 0;
+}
+//Welcome Function
+void showWelcome()
+{
+     cout << "Welcome to the average rainfall calculator" << endl << endl;
+     system ("pause");
+}
+
+//Menu Function
+
+void showMenu()
+{    
+    cout << "Please choose a season" << endl << endl
+         << "1. Spring" << endl
+         << "2. Summer" << endl
+         << "3. Fall" << endl
+         << "4. Winter"<< endl 
+         << "5. Quit" << endl << endl;
+}
+    
+//Spring choice function
+
+int showSpring(float spring, float spring1, float spring2, float spring3)
+{
+    cout << "Enter the rainfall for month one " << endl;
+    cin >> spring1;
+    cout << endl << "Enter the rainfall for month two " << endl;
+    cin >> spring2;
+    cout << endl << "Enter the rainfall for month three " << endl;
+    cin >> spring3;
+    spring = (spring1 + spring2 + spring3) / 3;
+    cout << endl << "The average rainfall for Spring was "
+         << spring << endl << endl;
+    return 0;
+}
+
+//Summer choice function
+
+int showSummer(float summer, float summer1, float summer2, float summer3)
+{
+    cout << endl << "Enter the rainfall for month one " << endl;
+    cin >> summer1;
+    cout << endl << "Enter the rainfall for month two " << endl;
+    cin >> summer2;
+    cout << endl << "Enter the rainfall for month three " << endl;
+    cin >> summer3;
+    summer = (summer1 + summer2 + summer3) / 3;
+    cout << endl << "The the average rainfall for Summer was "
+         << summer << endl << endl;
+    return 0;
+}
+
+//Fall choice function
+
+int showFall(float fall, float fall1, float fall2, float fall3)
+{
+    cout << endl << "Enter the rainfall for month one " << endl;
+    cin >> fall1;
+    cout << endl << "Enter the rainfall for month two " << endl;
+    cin >> fall2;
+    cout << endl << "Enter the rainfall for month three " << endl;
+    cin >> fall3;
+    fall = (fall1 + fall2 + fall3) / 3;
+    cout << endl << "The average rainfall for Fall was "
+         << fall << endl << endl;
+    return 0;
+}
+
+//Winter choice function
+
+int showWinter(float winter, float winter1, float winter2, float winter3)
+{
+    cout << endl << "Enter the rainfall for month one " << endl;
+    cin >> winter1;
+    cout << endl << "Enter the rainfall for month two " << endl;
+    cin >> winter2;
+    cout << endl << "Enter the rainfall for month three " << endl;
+    cin >> winter3;
+    winter = (winter1 + winter2 +winter3) / 3;
+    cout << endl << "The average rainfall for Winter was "
+         << winter << endl << endl;
+    return 0;
+}
