@@ -1,0 +1,54 @@
+// This program will calculate the average number of days
+//a company's employees are absent.
+#include <iostream>
+#include <cstdlib>   
+using namespace std;
+ 
+//Function prototype 
+int NumEmp();  // This function uses to enter the number of employees
+int Dayoff(int &); //This function uses to calculate the total day off
+ 
+int main()
+{
+   static int num;
+   static int average;
+   num = NumEmp();
+   cout <<endl;
+   cout <<endl;
+   average = Dayoff(num);
+   cout << "The average days off of the employees in the company is: "<< average <<".\n";
+   cout <<endl;
+   cout <<endl;
+   exit (0);
+}
+ 
+ 
+//Function asks user to enter the number of employees in the company
+//The return value should be int 
+int NumEmp()
+{
+   static int number;
+   cout << "Please enter the number of the employees in the company: ";
+   cin >> number;
+   while (number < 1)
+        {
+        cout << "Invalid entry. Please enter the correct number of the employees: ";
+        cin >>number;
+        }
+   return number;
+}
+
+//Function asks the user to enter numbers of days each employees missed during past year.
+//The total should be return as an int
+int Dayoff(int &num)
+{
+    static int total;
+    static int dayoff;
+    for (int i=1; i <= num; i++)
+        {
+        cout << "Please enter the days of employee " << i << " missed: ";
+        cin >> dayoff;
+        total += dayoff;
+        }
+    return total;
+}
