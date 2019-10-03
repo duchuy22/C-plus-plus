@@ -1,0 +1,61 @@
+//#2 Lottery Winners
+
+/*
+A lottery ticket buyer purchases 10 tickets a week, always playing the same 10 5-digit "lucky" combinations
+Write a program that initializes an array or a vector with these numbers and then lets the player enter this
+week's winning 5-digit number. The program should perform a linear search through the list of the player's
+numbers and report whether or not one of the tickets is a winner this week. Here are the numbers.
+ 
+13579   26791   26792   33445   55555   62483   77777   79422   85647   93121
+*/
+
+#include <iostream>
+using namespace std;
+
+//Function prototype
+int searchArray(int[], const int, int);
+
+//MAIN FUNCTION
+int main()
+{
+    //Variable declarations
+    const int SIZE = 10;
+    int array[SIZE] = {13579, 26791, 26792, 33445, 55555, 62483, 77777, 79422, 85647, 93121};
+    int value;
+    
+    //First prompt for user
+    cout<<"Please enter the winning lottery ticket number for this week! "<<endl;
+    cin>>value;   //User enters value
+    
+    //Call to function
+    searchArray(array, SIZE, value);
+    
+    return 0;
+}
+
+//Linear search algorithm
+int searchArray(int array[], const int SIZE, int value){
+    int index = 0;
+    int position = -1;
+    bool found = false;
+    
+    while(index < SIZE && !found)
+    {
+        if(array[index] == value)
+        {
+            found = true;
+            position = index;
+            
+            //If the value returns anything but -1, winner
+            if(position != -1)
+                cout<<"Congratulations! You are a lottery winner!"<<endl;
+        }
+        index++;
+    }
+    
+    //If the postion is -1, try again
+    if(position == -1)
+        cout<<"Sorry! Please try again later!"<<endl;
+    
+    return position;
+}
